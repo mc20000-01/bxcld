@@ -25,11 +25,12 @@ function startCloudInstance() {
         const data = JSON.parse(e.data);
         if (data.cmd == "ask") {
             response = window.prompt(data.ask);
-            toSend = {"data": response} 
-            socket.send(JSON.stringify(toSend))
+            output.value = output.value + data.ask + ": " + response + "\n";
+            toSend = {"data": response} ;
+            socket.send(JSON.stringify(toSend));
         };
         if (data.cmd == "say") {
-            output.value = output.value + data.say + "\n"
+            output.value = output.value + data.say + "\n";
         };
     };
 };
