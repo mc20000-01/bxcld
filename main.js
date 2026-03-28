@@ -19,7 +19,7 @@ function saveKey() {
             const resp = JSON.parse(e.data)
             if (resp.cmd == "auth_ok") {
                 console.log("authenticated")
-                keyInput.disabled=true
+                keyInput.disabled= true
                 keyInput.type="password"
             }
         }
