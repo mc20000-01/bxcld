@@ -16,10 +16,11 @@ function saveKey() {
     socket.onopen = function(e) {
         socket.send(JSON.stringify(check))
         socket.onmessage = function(e) {
-            const resp = JSON.(e)
-            console.log(resp)
-            if (resp == "auth_ok") {
-                keyInput.disabled =true
+            const resp = JSON.parse(e.data)
+            if (resp.cmd == "auth_ok") {
+                console.log("authenticated")
+                keyInput.disabled=true
+                keyInput.type="password"
             }
         }
     }
@@ -31,7 +32,7 @@ function startCloudInstance() {
     const code = codeInput.value.replace("\n", " /n ");
     const socket = new WebSocket(url);
     const payload = {
-        "name": "web.bx",  // just bc it is running from the web and has no real
+        "name": "web.bx",  // just bc it is running from the web and has no real name
         "data": code,
         "key": key
     };
@@ -65,4 +66,3 @@ if 77|==|4|say|test|1
 `.trim();
 runButton.onclick = () => startCloudInstance();
 connectButton.onclick = () => saveKey();
-console.log(keyInput.disabled)

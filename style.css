@@ -2,6 +2,7 @@ body {
     color: #ffffff;
     background-color: #000000
 }
+
 #codeInput {
     width: 100%;
     height: 620px;
@@ -10,6 +11,7 @@ body {
     border-radius:10px;
     corner-shape: scoop(-1);
 }
+
 #codeOutput {
     width: 100%;
     height: 100px;
@@ -18,12 +20,14 @@ body {
     border-radius:10px;
     corner-shape: scoop(-1);
 }
+
 button {
     background-color: #127e12;
     color: #ffffff;
     border-radius:4px;
     corner-shape: scoop(-1);
 }
+
 input {
     background-color: #393939;
     color: #ffffff;
